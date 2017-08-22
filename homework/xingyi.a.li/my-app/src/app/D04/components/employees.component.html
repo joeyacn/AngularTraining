@@ -1,0 +1,13 @@
+<h2>My Employees</h2>
+<ul class="employees">
+  <div style="text-align:left">
+    <li *ngFor="let employee of employees" [class.selected]="employee === selectedEmployee" (click)="onSelect(employee)">
+      <span class="badge">{{employee.id}}</span> {{employee.name}}
+    </li>
+  </div>
+</ul>
+<div *ngIf="selectedEmployee">
+  <h2>
+    Hello， I'm {{selectedEmployee.name | uppercase}}. {{selectedEmployee.post }} Level. <button (click)="gotoDetail()">View Details</button>
+  </h2>
+</div>
